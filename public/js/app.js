@@ -7,11 +7,12 @@ var socket = io();
 
 console.log(name + ' wants to join ' + room);
 
-// Update h1 tag
+// Updates room name in chat.html page
 jQuery('.room-title').text(room);
 
+// Emits to users when someone new joins the chatroom using joinRoom listener from server.js
 socket.on('connect', function () {
-	// notifies when user enters using web browser
+	// notifies when user enters chat app using web browser
 	console.log('Connected to socket.io server!');
 	socket.emit('joinRoom', {
 		name: name,
